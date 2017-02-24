@@ -25,18 +25,19 @@ chrome.runtime.onMessage.addListener(
             urlt = tabs[0].url;
             console.log(urlt);
 
-            if(urlt == null || urlt == undefined){
-              return;
+            if(urlt == null || urlt == undefined || urlt == "blank.html"){
+              videoID = "blank.html"
             } else {
               // Use regex to get the URL ID, so for now we will cut the "=" off
-              var videoID = urlt.match(/=.*/);
+              var videoID = urlt.match(/v=.*/);
               if(videoID == null || videoID == undefined){
-              return;
-            }
-              var videoID = urlt.match(/=.*/)[0];
+              videoID = "blank.html"
+            } else {
+              var videoID = urlt.match(/v=.*/)[0];
               console.log(videoID);
-              videoID = videoID.substring(1);
+              videoID = videoID.substring(2);
             }
+          }
 
             console.log(videoID);
             chrome.tabs.sendMessage(activeTab.id, {"message":"videoid", "videoid": videoID});

@@ -52,8 +52,14 @@ $( window ).resize(function() {
 chrome.runtime.onMessage.addListener(
    function(request, sender, sendResponse) {
       if (request.message === "videoid"){
+        if(request.videoid == "blank.html"){
+          url = "blank.html"
+          $("#resizeable").attr('href', url);
+          $("#resizeable").attr('src', "");
+          console.log(url);
+        } else {
       	// Check if the video id is different
-       	if(request.newvideoid != videoid){
+       	if(request.videoid != videoid){
        		videoid = request.videoid;
       		url = "https://www.youtube.com/embed/" + request.videoid + "?enablejsapi=1";
       		$("#resizeable").attr('src', url);
@@ -67,4 +73,5 @@ chrome.runtime.onMessage.addListener(
       		console.log(url);
       	}
   	  }
-  	});
+    }
+  });

@@ -3,9 +3,12 @@
   "name": "PocketMonitor",
   "version": "1.0",
   "browser_action": {
-  "default_icon": "icon.png"
+  "default_icon": "mon.png"
   },
-    "content_scripts": [
+  "icons": { "16": "mon.png",
+           "48": "mon.png",
+          "128": "mon.png" },
+  "content_scripts": [
     {
     "matches": ["https://www.youtube.com/*"],
     "js": ["scripts/jquery-3.1.1.min.js", "scripts/content.js"],
@@ -17,8 +20,7 @@
   },
   "permissions": [
     "activeTab",
-    "tabs",
-    "http://*/*", "https://*/*"
+    "tabs"
   ]
 }
 
