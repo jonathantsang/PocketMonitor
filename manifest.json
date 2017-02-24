@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+  "name": "PocketMonitor",
+  "version": "1.0",
+  "browser_action": {
+  "default_icon": "icon.png"
+  },
+    "content_scripts": [
+    {
+    "matches": ["https://www.youtube.com/*"],
+    "js": ["scripts/jquery-3.1.1.min.js", "scripts/content.js"],
+    "run_at": "document_end"
+    }
+  ],
+  "background": {
+  	"scripts": ["scripts/background.js"]
+  },
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "http://*/*", "https://*/*"
+  ]
+}
+
+
