@@ -5,7 +5,7 @@
 //   function(request, sender, sendResponse) {
 //     if( request.message === "resize_window" ) {
 //       console.log("resized")
-//     	var url = findActiveTab();
+//      var url = findActiveTab();
 //       chrome.tabs.create({"url": url});
 //     }
 //   }
