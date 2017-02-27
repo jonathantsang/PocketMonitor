@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "PocketMonitor",
   "short_name" : "PM",
-  "version": "1.1",
+  "version": "1.2",
   "browser_action": {
   "default_icon": "mon.png"
   },
