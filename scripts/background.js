@@ -18,14 +18,14 @@ chrome.browserAction.onClicked.addListener(function() {
     } else {
     // Use regex to get the URL ID, so for now we will cut the "=" off
     // This deals with video id up to ampersand
-    var videoID = urlt.match(/v=.+(?=&?)/);
+    var videoID = urlt.match(/v=.+/);
     if(videoID == null || videoID == undefined){
       videoID = "blank.html"
     } else {
-      var videoID = urlt.match(/v=.+(?=&?)/)[0];
+      var videoID = urlt.match(/v=.+/)[0];
       console.log(videoID);
-      // Cut off the v=
-      videoID = videoID.substring(2);
+      // Cut off the v= and use the 11 video id digits
+      videoID = videoID.substring(2,11);
     }
   }
   console.log(videoID);
